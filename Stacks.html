@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="styles.css"/>
+		<link rel="stylesheet" href="stacks.css"
+	</head>
+	<body>
+
+		<body>
+		<div class = "topnav">
+			<a class="active" href="index.html">Home</a>
+			<a href ="Stacks.html">Stacks</a>
+			<div class ="dropdown">
+				<button class ="dropbtn">Linked Lists
+					<i class ="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+					<a href="Queues.html">Queues</a>
+					<a href="LinkedList.html">Linked List</a>
+					<a href="#">Deque</a>
+				</div>
+			</div>				
+			<a href ="#trees">Trees</a>
+		</div>
+
+		<img src="">
+
+		
+
+
+		<div class ="container">
+			<form id ="form1">
+			<p>Enter any item to add on stack:</p><input type="text" name="name" size="20">
+			</form><br>
+			<button onclick="push()">Push</button>
+			<button onclick="pop()">Pop</button>
+			<button onclick="peek()">Peek</button>
+			<button onclick="size()">Length</button>
+		</div>
+
+		<script type="text/javascript">
+
+			var Stack = function(){
+				this.count = 0;
+				this.storage ={};
+
+				this.push = function(value){
+					this.storage[this.count] = value;
+					this.count++;
+				}
+
+				this.pop = function(){
+					if (this.count === 0) {
+						return undefined;
+					}
+
+					this.count--;
+					var result = this.storage[this.count];
+					delete this.storage[this.count];
+					return result;
+				}
+
+				this.size = function(){
+					return this.count;
+				}
+
+				this.peek = function(){
+					return this .storage[this.count-1];
+				}
+			}
+
+			var myStack = new Stack();
+
+			function push(){
+				var x, y;
+				
+				x = document.getElementById("form1");
+				y = x.elements["name"].value;
+
+				myStack.push(y);
+
+				// document.getElementById("demo").innerHTML="Hello "+y+"<br>";
+				// document.getElementById("demo").innerHTML+=y + "is a very good tutor! <br>";
+			}
+
+			function peek(){
+				document.getElementById("demo").innerHTML = myStack.peek();
+			}
+
+			function pop(){
+				myStack.pop();
+			}
+
+			function size(){
+				document.getElementById("demo").innerHTML = myStack.size();
+			}
+
+		</script>
+
+		<br><br><p id="demo" class="democlass"></p>
+		
+	</body>
+</html>
